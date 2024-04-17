@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoMauiClient.Pages.ManageToDoPage"
+             Title="Manage to do">
+    <VerticalStackLayout Padding="30, 20"
+                         Spacing="5">
+        <Label Text="What do you want to do?"/>
+        <Border Style="{StaticResource CardView}"
+                Margin="0, 0, 0, 10">
+            <Entry Text="{Binding Path=ToDo.Text}"
+                   Placeholder="Enter text"
+                   BackgroundColor="{StaticResource Secondary}"
+                   PlaceholderColor="{StaticResource Primary}"/>
+        </Border>
+
+        <Grid x:Name="CreateToDoButtons"
+              ColumnDefinitions="*,*"
+              ColumnSpacing="10">
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked"
+                    BackgroundColor="{StaticResource Success}"/>
+            <Button Text="Cancel"
+                    Clicked="OnCancelButtonClicked"
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource Warning}"/>
+        </Grid>
+
+        <Grid x:Name="UpdateToDoButtons"
+              ColumnDefinitions="*,*"
+              RowDefinitions="*,*"
+              ColumnSpacing="10"
+              RowSpacing="10">
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked"
+                    BackgroundColor="{StaticResource Success}"/>
+            <Button Text="Delete"
+                    Clicked="OnDeleteButtonClicked"
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource Danger}"
+                    TextColor="White"/>
+            <Button Text="Cancel"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Clicked="OnCancelButtonClicked"
+                    BackgroundColor="{StaticResource Warning}"/>
+        </Grid>
+
+        <!--<Button Text="Save"
+                Clicked="OnSaveButtonClicked"/>
+        <Button Text="Delete"
+                Clicked="OnDeleteButtonClicked"/>
+        <Button Text="Cancel"
+                Clicked="OnCancelButtonClicked"/>-->
+    </VerticalStackLayout>
+</ContentPage>
